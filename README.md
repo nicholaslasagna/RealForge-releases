@@ -2,7 +2,7 @@
 
 **[Download RealForge for Mac](https://github.com/nicholaslasagna/RealForge-releases/releases/latest/download/RealForge-macOS-AppleSilicon.dmg)** · Apple silicon (M1 or newer), macOS 12 or later
 
-Or use the download page: https://nicholaslasagna.github.io/RealForge-releases/
+Or use the download page: https://nicholaslasagna.com/RealForge-releases/
 
 ## Install
 
