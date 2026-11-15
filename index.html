@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; script-src 'sha256-1A1gMLBT1w4bg1EG6ZGlcoIkcrgQZ/j+xL+QDYvTZu8='; connect-src https://api.github.com; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; script-src 'sha256-dg7lZ+PNOptpg0+bP6ewLyiK96kh66+iiWg3AVC5zis='; connect-src https://api.github.com; base-uri 'none'; form-action 'none'">
   <meta name="description" content="Download RealForge for macOS, Windows, and Linux. Your AI chat and coding workbench, with local models first.">
   <meta name="color-scheme" content="dark light">
   <title>Download RealForge</title>
@@ -314,12 +314,13 @@
 
   const ua = navigator.userAgent;
   const platform = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "";
-  const touchMac = /Mac/.test(platform) && navigator.maxTouchPoints > 1;
+  // Chromium reports "macOS", Safari "MacIntel": match either.
+  const touchMac = /mac/i.test(platform) && navigator.maxTouchPoints > 1;
   const os = /iPhone|iPad|iPod/.test(ua) || touchMac ? "ios"
     : /Android/.test(ua) ? "android"
-    : /Mac/.test(platform) ? "mac"
-    : /Win/.test(platform) ? "windows"
-    : /Linux|X11|CrOS/.test(platform + ua) ? "linux"
+    : /mac/i.test(platform) ? "mac"
+    : /win/i.test(platform) ? "windows"
+    : /linux|x11|cros/i.test(platform + ua) ? "linux"
     : "";
 
   const label = document.getElementById("primary-label");
